@@ -1,0 +1,164 @@
+body,html{
+  height: 100%;
+}
+.all-background {
+  background-image: url("../img/background.jpg");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+a{
+  transition: 1s;
+}
+a:hover{
+  opacity: 0.5;
+  text-decoration: none;
+}
+nav{
+  z-index: 1000;
+}
+input[type=text], input[type=number], textarea{
+  border-radius: 5px !important;
+  border: none !important;
+  background-color: #f5f5f5 !important;
+}
+input[type=text]:focus, input[type=number]:focus, textarea:focus {
+  background-color: #eeeeee !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.input-group-text{
+  border: none !important;
+}
+.nav-link{
+  color: #ffffff !important;
+  padding: 0 !important;
+}
+.nav-item{
+  color: #ffffff !important;
+  padding: 0 !important;
+}
+
+.card{
+  border: none !important;
+}
+.card-entry{
+  border-radius: 20px !important;
+  -webkit-box-shadow: 0px 0px 59px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 59px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 59px 0px rgba(0,0,0,0.75);
+}
+.link-vechile{
+  -webkit-transition: all 200ms ease-in;
+  -webkit-transform: scale(1); 
+  -ms-transition: all 200ms ease-in;
+  -ms-transform: scale(1); 
+  -moz-transition: all 200ms ease-in;
+  -moz-transform: scale(1);
+  transition: all 200ms ease-in;
+  transform: scale(1);
+}
+.link-vechile:hover{
+  box-shadow: 0px 0px 150px #696969;
+  text-decoration: none;
+  z-index: 2;
+  -webkit-transition: all 200ms ease-in;
+  -webkit-transform: scale(1.05);
+  -ms-transition: all 200ms ease-in;
+  -ms-transform: scale(1.05);   
+  -moz-transition: all 200ms ease-in;
+  -moz-transform: scale(1.05);
+  transition: all 200ms ease-in;
+  transform: scale(1.05);
+}
+figure {
+	-webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+figure:hover{
+	-webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  color: #696969 !important;
+}
+.card-vechile{
+  color: #000000;
+  padding-left: 0;
+}
+.card-body-vechile{
+  padding-left: 0 !important;
+}
+.text-vechile{
+  margin-top: -5px;
+  font-size: 14px;
+  color: #7a7a7a !important;
+}
+.success-text{
+  margin-top: -5px;
+  font-size: 12px;
+  color: #7a7a7a !important;
+}
+.detail-text-success{
+  margin-top: -15px;
+}
+.btn{
+  border-radius: 10px !important;
+}
+
+.form-check-label{
+  font-size: 10px;
+  color: #6b6b6b !important;
+}
+
+.overlay {
+  height: 0%;
+  width: 100%;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.9);
+  overflow-y: hidden;
+  transition: 0.5s;
+}
+
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #ffffff;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+  color: #f1f1f1;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay {overflow-y: auto;}
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+  font-size: 40px;
+  top: 15px;
+  right: 35px;
+  }
+}
