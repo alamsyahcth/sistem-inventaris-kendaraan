@@ -14,9 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Auth::routes();
-Route::get('/','HomeController@index');
-Route::get('/vechile','HomeController@vechile');
-Route::get('/success','HomeController@success');
+
+Route::get('/','HomeController@vechile');
+Route::get('/category/{slug}','HomeController@getCategory');
+Route::post('/search','HomeController@search');
+
+Route::get('/data','HomeController@data');
+Route::post('/create-order', 'HomeController@createOrder');
+
+Route::get('/success/{id}','HomeController@success');
 
 Route::get('/manage','DashboardController@index');
 
@@ -45,4 +51,9 @@ Route::get('/manage/vechile/destroy/{id}','VechileController@destroy');
 Route::get('/manage/condition/{id}', 'ConditionController@index');
 Route::post('/manage/condition/store', 'ConditionController@store');
 Route::get('/manage/condition/destroy/{id}/{vechile_id}', 'ConditionController@destroy');
+
+Route::get('/manage/book-in', 'BookingInController@index');
+Route::get('/manage/book-in/{id}', 'BookingInController@view');
+Route::get('/manage/book-in/accepted/{id}', 'BookingInController@accepted');
+Route::get('/manage/book-in/refused/{id}', 'BookingInController@refused');
 

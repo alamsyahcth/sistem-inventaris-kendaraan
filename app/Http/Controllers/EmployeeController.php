@@ -7,6 +7,11 @@ use File;
 use App\Employee;
 
 class EmployeeController extends Controller {
+
+    public function __construct(){
+        $this->middleware(['auth']);
+    }
+
     public function index() {
         $data = Employee::get();
         return view('backend.employee.index', compact(['data']));

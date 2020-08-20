@@ -32,17 +32,47 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-  @yield('js')
   <script>
+
     function openNav() {
       document.getElementById("myNav").style.height = "100%";
     }
     function closeNav() {
       document.getElementById("myNav").style.height = "0%";
     }
+    var date = new Date();
+    date.setDate(date.getDate()-1);
     $('.datepicker').datepicker({
-      format: 'yyyy-mm-dd'
+      format: 'yyyy-mm-dd',
+      startDate: date
     });
+    $(".alert").delay(2000).show(200, function() {
+      $(".alert").hide();
+    });
+
+    $(document).ready(function() {
+      $('#modalQuickView').on('click','.modal-vechile', function() {
+        var id = $(this).data('id');
+        var name = $(this).data('name');
+        var police_number = $(this).data('police_number');
+        var color = $(this).data('color');
+        var merk = $(this).data('merk');
+        var photo = $(this).data('photo');
+        console.log(id);
+        console.log(name);
+        console.log(police_number);
+        console.log(color);
+        console.log(merk);
+        console.log(photo);
+        $('#front-vechile-id').val(id);
+        $('#front-vechile-name').val(name);
+        $('#front-vechile-police-number').val(police_number);
+        $('#front-vechile-color').val(color);
+        $('#front-vechile-merk').val(merk);
+        $('#front-vechile-photo').val(photo);
+      })
+    })
   </script>
+  @yield('js')
 </body>
 </html>

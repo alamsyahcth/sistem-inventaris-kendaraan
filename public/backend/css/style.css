@@ -1,0 +1,17 @@
+.success-text{
+  margin-top: 15px;
+  font-size: 12px;
+  color: #7a7a7a !important;
+}
+.detail-text-success{
+  margin-top: -15px;
+  color: #000000;
+}
+.btn-disabled{
+  background:#66dcb1 !important;
+  color: #ffffff;
+}
+.btn-disabled:hover{
+  cursor: default !important;
+  color: #ffffff;
+}

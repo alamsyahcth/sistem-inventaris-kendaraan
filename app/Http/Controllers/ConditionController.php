@@ -8,6 +8,10 @@ use App\Condition;
 
 class ConditionController extends Controller {
 
+    public function __construct(){
+        $this->middleware(['auth']);
+    }
+
     public function index($id){
         $condition = Condition::where('vechile_id',$id)->get();
         $data = Vechile::where('id',$id)->first();

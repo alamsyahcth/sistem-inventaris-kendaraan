@@ -6,9 +6,9 @@
       <div class="row align-item-center">
         <div class="col-md-6">
           <p class="text-vechile mt-3">Ditemukan 50 Kendaraan</p>
-          <a href="{{ url('/')}}" class="btn btn-secondary mr-2">Semua</a>
+          <a href="{{ url('/')}}" class="btn btn-outline-secondary mr-2">Semua</a>
           @foreach ($category as $c)
-            <a href="{{ url('/category/'.$c->slug )}}" class="btn btn-outline-secondary mr-2">{{ $c->name }}</a>
+            <a href="{{ url('/category/'.$c->slug )}}" class="btn @if(Request::is('category/'.$c->slug)) btn-secondary @else btn-outline-secondary @endif mr-2">{{ $c->name }}</a>
           @endforeach
         </div>
         <div class="col-md-6">
@@ -26,14 +26,7 @@
           @foreach($data as $d)
             <div class="col-md-3 p-3">
               <figure>
-                <a href="#" class="modal-vechile" data-toggle="modal"
-                  data-id="{{ $d->id }}"
-                  data-name="{{ $d->name }}"
-                  data-police_number="{{ $d->police_number }}"
-                  data-color="{{ $d->color }}"
-                  data-merk="{{ $d->merk }}"
-                  data-photo="{{ $d->photo }}"
-                  data-target="#modalQuickView">
+                <a href="#" class="link-vechile" data-toggle="modal" data-id="{{ $d->id }}" data-target="#modalQuickView">
                   <div class="card card-vechile">
                     <img src="{{asset('img/vechile/'.$d->photo)}}" class="card-img-top">
                     <div class="card-body card-body-vechile">
@@ -56,7 +49,7 @@
     </div>
   </section>
 
-  <div class="modal fade view-vechile" id="modalQuickView" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  <div class="modal fade" id="modalQuickView" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
@@ -89,8 +82,8 @@
               <!--/.Carousel Wrapper-->
             </div>
             <div class="col-md-7 pt-3">
-              <h3><div id="front-vechile-name"></div></h3>
-              <h5><div id="front-vechile-police-number"></div></h5>
+              <h3>Daihatsu Sigra</h3>
+              <h5>B 12345 MM</h5>
               <p>Deskripsi</p>
               <p class="text-vechile">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.

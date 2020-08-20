@@ -9,6 +9,11 @@ use App\Vechile;
 use App\Category;
 
 class VechileController extends Controller {
+
+    public function __construct(){
+        $this->middleware(['auth']);
+    }
+
     public function index() {
         $data = Vechile::get();
         return view('backend.vechile.index', compact(['data']));
