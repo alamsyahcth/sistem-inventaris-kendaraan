@@ -3,18 +3,46 @@
 @section('content')
   <section class="all-background pt-5">
     <div class="container pt-3">
-      <div class="row h-100">
-        <div class="col-md-6 d-flex">
-          <div class="justify-content-center align-self-center">
-            <img class="ml-5 mb-3" src="{{asset('img/logo.svg')}}">
-            <h1 class="text-light ml-5">Selamat Datang</h1>
-            <h6 class="text-light ml-5">Di Sistem Inventory Kendaraan</h6>
-          </div>
-        </div>
-        <div class="col-md-6 py-5">
-          <div class="card card-entry h-100">
-            <div class="card-body py-5 px-5">
-              <h4>Untuk Peminjaman Isi Data Berikut</h4>
+      <div class="card card-entry h-100">
+        <div class="card-body py-5 px-5">
+          <div class="row">
+            <div class="col-md-6 p-5 box-right">
+              <div class="row">
+                <div class="col-md-12">
+                  <h4>Data Kendaraan</h4>
+                </div>
+                <div class="col-md-6 mt-1">
+                  <img src="{{asset('img/vechile/'.$vechile->photo)}}" class="img-fluid">
+                </div>
+                <div class="col-md-6 mt-1">
+                  <h3>{{ $vechile->name }}</h3>
+                  <h6 class="text-secondary">{{ $vechile->police_number }}</h6>
+                  <h6 class="text-danger mt-4">Detail Kendaraan</h6>
+                  <table class="table table-bordered mt-1">
+                    <tr>
+                      <td>
+                        <p class="success-text-2">No Stnk</p>
+                        <p class="detail-text-success-2">{{ $vechile->stnk_no }}</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p class="success-text-2">Merk</p>
+                        <p class="detail-text-success-2">{{ $vechile->merk }}</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p class="success-text-2">Warna</p>
+                        <p class="detail-text-success-2">{{ $vechile->color }}</p>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 p-5">
+              <h4>Form Data Peminjam</h4>
               <form class="form-horizontal mt-4" action="{{url('/create-order')}}" method="post">
                 <div class="form">
                   @csrf
@@ -31,6 +59,7 @@
                       </span>
                     @endif
                   </div>
+                  <input type="hidden" name="vechile_id" value="{{ $vechile->id }}">
                   <div class="form-group">
                     <div class="row">
                       <div class="col-md-6">

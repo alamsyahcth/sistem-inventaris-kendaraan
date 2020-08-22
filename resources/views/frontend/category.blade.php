@@ -3,6 +3,11 @@
 @section('content')
   <section class="pt-5">
     <div class="container pt-5">
+      <div class="row">
+        <div class="col-md-12 px-3">
+          <h1>Pilih Kendaraan</h1>
+        </div>
+      </div>
       <div class="row align-item-center">
         <div class="col-md-6">
           <p class="text-vechile mt-3">Ditemukan 50 Kendaraan</p>
@@ -26,7 +31,7 @@
           @foreach($data as $d)
             <div class="col-md-3 p-3">
               <figure>
-                <a href="#" class="link-vechile" data-toggle="modal" data-id="{{ $d->id }}" data-target="#modalQuickView">
+                <a href="{{url('/data/'.$d->slug)}}">
                   <div class="card card-vechile">
                     <img src="{{asset('img/vechile/'.$d->photo)}}" class="card-img-top">
                     <div class="card-body card-body-vechile">
@@ -48,51 +53,4 @@
       </div>
     </div>
   </section>
-
-  <div class="modal fade" id="modalQuickView" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content">
-        <div class="modal-body">
-          <div class="row">
-            <div class="col-lg-5">
-              <!--Carousel Wrapper-->
-              <div id="carousel-thumb" class="carousel slide carousel-fade carousel-thumbnails"
-                data-ride="carousel">
-                <!--Slides-->
-                <div class="carousel-inner" role="listbox">
-                  <div class="carousel-item active">
-                    <img class="d-block w-100"
-                      src="{{asset('img/mobil.jpg')}}"
-                      alt="First slide">
-                  </div>
-                </div>
-                <!--/.Slides-->
-                <!--Controls-->
-                <a class="carousel-control-prev" href="#carousel-thumb" role="button" data-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carousel-thumb" role="button" data-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Next</span>
-                </a>
-                <!--/.Controls-->
-              </div>
-              <!--/.Carousel Wrapper-->
-            </div>
-            <div class="col-md-7 pt-3">
-              <h3>Daihatsu Sigra</h3>
-              <h5>B 12345 MM</h5>
-              <p>Deskripsi</p>
-              <p class="text-vechile">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              </p>
-              <a href="{{asset('/data')}}"><button class="btn btn-danger btn-block mt-5">Pinjam</button></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 @endsection

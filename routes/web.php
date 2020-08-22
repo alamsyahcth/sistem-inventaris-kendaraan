@@ -19,7 +19,7 @@ Route::get('/','HomeController@vechile');
 Route::get('/category/{slug}','HomeController@getCategory');
 Route::post('/search','HomeController@search');
 
-Route::get('/data','HomeController@data');
+Route::get('/data/{slug}','HomeController@data');
 Route::post('/create-order', 'HomeController@createOrder');
 
 Route::get('/success/{id}','HomeController@success');
@@ -54,6 +54,8 @@ Route::get('/manage/condition/destroy/{id}/{vechile_id}', 'ConditionController@d
 
 Route::get('/manage/book-in', 'BookingInController@index');
 Route::get('/manage/book-in/{id}', 'BookingInController@view');
-Route::get('/manage/book-in/accepted/{id}', 'BookingInController@accepted');
-Route::get('/manage/book-in/refused/{id}', 'BookingInController@refused');
+Route::get('/manage/book-in/accepted/{id}/{order_book}', 'BookingInController@accepted');
+Route::get('/manage/book-in/refused/{id}/{vechile_id}', 'BookingInController@refused');
+
+Route::get('/manage/book','BookController@index');
 

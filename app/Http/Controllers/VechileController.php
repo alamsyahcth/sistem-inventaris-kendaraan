@@ -56,6 +56,7 @@ class VechileController extends Controller {
             $data->no_rangka = $request->no_rangka;
             $data->no_mesin = $request->no_mesin;
             $data->photo = $imgName;
+            $data->status = 'available';
 
             if($data->save()) {
                 return redirect('/manage/vechile')->with('success','Data Berhasil Disimpan');
@@ -103,6 +104,7 @@ class VechileController extends Controller {
                 $data->no_rangka = $request->no_rangka;
                 $data->no_mesin = $request->no_mesin;
                 $data->photo = $imgName;
+                $data->status = 'available';
 
                 if($data->save()) {
                     return redirect('/manage/vechile')->with('success','Data Berhasil Diubah');
@@ -121,6 +123,7 @@ class VechileController extends Controller {
                 $data->no_rangka = $request->no_rangka;
                 $data->no_mesin = $request->no_mesin;
                 $data->photo = $request->old_photo;
+                $data->status = 'available';
 
                 if($data->save()) {
                     return redirect('/manage/vechile')->with('success','Data Berhasil Diubah');

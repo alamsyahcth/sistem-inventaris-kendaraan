@@ -8,7 +8,7 @@
   color: #000000;
 }
 .btn-disabled{
-  background:#66dcb1 !important;
+  background:#bbbbbb !important;
   color: #ffffff;
 }
 .btn-disabled:hover{

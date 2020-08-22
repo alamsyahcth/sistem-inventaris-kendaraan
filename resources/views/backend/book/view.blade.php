@@ -82,8 +82,8 @@
           </table>
           <div class="row mt-5">
             <div class="col-md-12">
-              <a href="{{url('/manage/book-in/accepted/'.$data->id)}}" class="btn btn-lg btn-success"><img src="{{asset('img/icon/accept.svg')}}"> Terima</a>
-              <a href="{{url('/manage/book-in/refused/'.$data->id)}}" class="btn btn-lg btn-danger"><img src="{{asset('img/icon/refuse.svg')}}"> Tolak</a>
+              <a href="{{url('/manage/book-in/accepted/'.$data->book_id.'/'.$data->order_books_id)}}" class="btn btn-lg btn-success"><img src="{{asset('img/icon/accept.svg')}}"> Terima</a>
+              <a href="{{url('/manage/book-in/refused/'.$data->book_id.'/'.$data->vechile_id)}}" class="btn btn-lg btn-danger"><img src="{{asset('img/icon/refuse.svg')}}"> Tolak</a>
             </div>
           </div>
         </div>

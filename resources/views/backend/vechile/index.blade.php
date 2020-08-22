@@ -23,8 +23,8 @@
               <tr>
                 <th width="5%">No</th>
                 <th width="20%">Nama</th>
-                <th width="20%">Merk</th>
                 <th width="20%">Nomor Polisi</th>
+                <th width="20%">Status</th>
                 <th width="15%">Foto</th>
                 <th width="20%">Action</th>
               </tr>
@@ -35,13 +35,19 @@
                 <tr>
                   <td>{{ $i++ }}</td>
                   <td>{{ $d->name }}</td>
-                  <td>{{ $d->merk }}</td>
                   <td>{{ $d->police_number }}</td>
+                  <td>
+                    @if($d->status == 'Not')
+                      <span class="badge badge-pill badge-danger">Dipinjam</span>
+                    @else 
+                      <span class="badge badge-pill badge-primary">Tersedia</span>
+                    @endif
+                  </td>
                   <td><img src="{{asset('img/vechile/'.$d->photo)}}" class="shadow" width="100"></td>
                   <td>
-                    <a href="{{url('/manage/vechile/edit/'.$d->id)}}" class="btn btn-primary btn-sm"><img src="{{asset('img/icon/edit.svg')}}"></a>
-                    <a href="{{url('/manage/vechile/destroy/'.$d->id)}}" class="btn btn-danger btn-sm"><img src="{{asset('img/icon/delete.svg')}}"></a>
-                    <a href="{{url('/manage/condition/'.$d->id)}}" class="btn btn-success btn-sm"><img src="{{asset('img/icon/add.svg')}}"></a>
+                    <a @if($d->status == 'Not') href="#" class="btn btn-disabled btn-sm" @else href="{{url('/manage/vechile/edit/'.$d->id)}}" class="btn btn-primary btn-sm" @endif><img src="{{asset('img/icon/edit.svg')}}"></a>
+                    <a @if($d->status == 'Not') href="#" class="btn btn-disabled btn-sm" @else href="{{url('/manage/vechile/destroy/'.$d->id)}}" class="btn btn-danger btn-sm" @endif><img src="{{asset('img/icon/delete.svg')}}"></a>
+                    <a @if($d->status == 'Not') href="#" class="btn btn-disabled btn-sm" @else href="{{url('/manage/condition/'.$d->id)}}" class="btn btn-success btn-sm" @endif><img src="{{asset('img/icon/add.svg')}}"></a>
                   </td>
                 </tr>
               @endforeach

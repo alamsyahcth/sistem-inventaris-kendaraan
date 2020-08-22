@@ -4,8 +4,8 @@
 <div class="container-fluid my-4">
   <div class="row">
     <div class="col-md-12">
-      <h1 class="font-weight-bold text-dark">Data Booking Masuk</h1>
-      <h6 class="mb-2">Manage Data Booking Kendaraan Masuk</h6>
+      <h1 class="font-weight-bold text-dark">Data Booking</h1>
+      <h6 class="mb-2">Manage Data Booking Kendaraan</h6>
       @include('backend/layouts/alert')
     </div>
   </div>
@@ -20,8 +20,9 @@
               <tr>
                 <th width="5%">No</th>
                 <th width="15%">Kode</th>
-                <th width="20%">Tanggal Mulai</th>
-                <th width="20%">Tanggal Selesai</th>
+                <th width="20%">Nama Karyawan</th>
+                <th width="10%">Tanggal Mulai</th>
+                <th width="10%">Tanggal Selesai</th>
                 <th width="20%" class="text-center">Status</th>
                 <th width="20%">Action</th>
               </tr>
@@ -31,25 +32,20 @@
               @foreach($data as $d)
                 <tr>
                   <td>{{ $i++ }}</td>
-                  <td>{{ $d->book_id }}</td>
+                  <td>{{ $d->book_code }}</td>
+                  <td>{{ $d->employees_name }}</td>
                   <td>{{ $d->booking_date }}</td>
                   <td>{{ $d->booking_end }}</td>
                   <td>
-                    @if($d->status == 'Belum')
-                      <span class="badge badge-pill badge-primary">Belum Dikonformasi</span>
+                    @if($d->books_status == 'berjalan')
+                      <span class="badge badge-pill badge-primary">Sedang Berlangsung</span>
                     @endif
-                    @if($d->status == 'Tolak')
-                      <span class="badge badge-pill badge-danger">Ditolak</span>
-                    @endif
-                    @if($d->status == 'Sudah')
-                      <span class="badge badge-pill badge-success">Sudah Dikonfirmasi</span>
-                    @endif
-                    @if($d->status == 'Selesai')
-                      <span class="badge badge-pill badge-secondary">Sudah Dikebalikan</span>
+                    @if($d->books_status == 'selesai')
+                      <span class="badge badge-pill badge-danger">Peminjaman Selesai</span>
                     @endif
                   </td>
                   <td>
-                    <a @if($d->status == 'Tolak' || $d->status == 'Sudah' || $d->status == 'Selesai') href="#" class="btn btn-disabled btn-sm" @else href="{{url('/manage/book-in/'.$d->book_id)}}" class="btn btn-success btn-sm" @endif ><img src="{{asset('img/icon/view.svg')}}"> View</a>
+                    <a @if($d->books_status == 'selesai') href="#" class="btn btn-disabled btn-sm" @else href="{{url('/manage/book-in/'.$d->book_id)}}" class="btn btn-success btn-sm" @endif ><img src="{{asset('img/icon/view.svg')}}"> View</a>
                   </td>
                 </tr>
               @endforeach
