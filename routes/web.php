@@ -58,4 +58,7 @@ Route::get('/manage/book-in/accepted/{id}/{order_book}', 'BookingInController@ac
 Route::get('/manage/book-in/refused/{id}/{vechile_id}', 'BookingInController@refused');
 
 Route::get('/manage/book','BookController@index');
+Route::get('/manage/book/{id}','BookController@view');
+Route::post('/manage/book/create','BookController@finish');
 
+Route::get('/manage/book-finish','BookFinishController@index');

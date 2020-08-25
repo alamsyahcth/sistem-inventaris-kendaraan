@@ -97,9 +97,37 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{url('/manage/book-finish')}}">
           <img src="{{asset('img/icon/out.svg')}}">
           <span class="ml-2">Peminjaman Selesai</span>
+        </a>
+      </li>
+      <!-- End Data Transaksi-->
+
+      <!-- Data Transaksi -->
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Laporan
+      </div>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url('/manage/book-in')}}">
+          <img src="{{asset('img/icon/book.svg')}}">
+          <span class="ml-2">Laporan Peminjaman</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url('/manage/book')}}">
+          <img src="{{asset('img/icon/book.svg')}}">
+          <span class="ml-2">Laporan Pengembalian</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url('/manage/book-finish')}}">
+          <img src="{{asset('img/icon/book.svg')}}">
+          <span class="ml-2">Laporan Kerusakan</span>
         </a>
       </li>
       <!-- End Data Transaksi-->
