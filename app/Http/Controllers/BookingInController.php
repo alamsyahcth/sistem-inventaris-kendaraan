@@ -15,7 +15,7 @@ class BookingInController extends Controller {
     }
 
     public function index(){
-        $data = OrderBook::get();
+        $data = OrderBook::orderBy('id','desc')->get();
         return view('backend.book.index', compact(['data']));
     }
 
@@ -23,7 +23,7 @@ class BookingInController extends Controller {
         $data = OrderBook::where('order_books.book_id',$id)
                 ->join('vechiles','vechiles.id','=','order_books.vechile_id')
                 ->join('employees','employees.id','=','order_books.employee_id')
-                ->select('*', 'vechiles.photo as vechiles_photo', 'order_books.id as order_books_id')
+                ->select('*', 'vechiles.photo as vechiles_photo', 'vechiles.name as vechiles_name', 'order_books.id as order_books_id')
                 ->first();
         return view('backend.book.view', compact(['data']));
     }

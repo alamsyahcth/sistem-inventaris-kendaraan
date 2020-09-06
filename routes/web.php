@@ -23,6 +23,7 @@ Route::get('/data/{slug}','HomeController@data');
 Route::post('/create-order', 'HomeController@createOrder');
 
 Route::get('/success/{id}','HomeController@success');
+Route::get('/send-mail-book/{id}', 'HomeController@sentmail');
 
 Route::get('/manage','DashboardController@index');
 
@@ -60,5 +61,15 @@ Route::get('/manage/book-in/refused/{id}/{vechile_id}', 'BookingInController@ref
 Route::get('/manage/book','BookController@index');
 Route::get('/manage/book/{id}','BookController@view');
 Route::post('/manage/book/create','BookController@finish');
+Route::get('/manage/book/report/{id}','BookController@report');
 
 Route::get('/manage/book-finish','BookFinishController@index');
+Route::get('/manage/book-finish/{id}','BookFinishController@view');
+Route::get('/manage/book-finish/report/{id}','BookFinishController@report');
+
+Route::get('/manage/report-peminjaman', 'ReportPeminjamanController@index');
+Route::post('/manage/report-peminjaman/print', 'ReportPeminjamanController@report');
+
+Route::get('/manage/report-pengembalian', 'ReportPengembalianController@index');
+
+Route::get('/manage/report-kerusakan', 'ReportKerusakanController@index');

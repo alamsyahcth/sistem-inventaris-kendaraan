@@ -76,11 +76,11 @@
             <tr>
               <td class="pb-0" width="20%">
                 <p class="success-text">Nama Kendaraan</p>
-                <h6 class="detail-text-success">Daihatsu Sigra</h6>
+                <h6 class="detail-text-success">{{ $data->vechiles_name }}</h6>
               </td>
               <td class="pb-0" width="20%">
                 <p class="success-text">Nomor Polisi</p>
-                <h6 class="detail-text-success">B 1234 MM</h6>
+                <h6 class="detail-text-success">{{ $data->police_number }}</h6>
               </td>
               <td class="pb-0" width="20%">
                 <img src="{{asset('img/vechile/'.$data->vechiles_photo)}}" width="100" class="img-fluid shadow">
@@ -91,12 +91,16 @@
             <div class="col-md-12">
               <form action="{{ url('/manage/book/create/') }}" method="post">
                 @csrf
-                <input type="text" name="order_books_id" value="{{ $data->order_books_id }}">
-                <input type="text" name="vechiles_id" value="{{ $data->vechiles_id }}">
-                <input type="text" name="books_id" value="{{ $data->books_id }}">
+                <input type="hidden" name="order_books_id" value="{{ $data->order_books_id }}">
+                <input type="hidden" name="vechiles_id" value="{{ $data->vechiles_id }}">
+                <input type="hidden" name="books_id" value="{{ $data->books_id }}">
+                <div class="form-group">
+                  <label class="control-label" for="broken_description">Kondisi Kendaraan (Kosongkan Jika Normal)</label>
+                  <textarea type="textarea" name="broken_description" class="form-control mb-2"></textarea>
+                </div>
                 <button type="submit" class="btn btn-lg btn-success"><img src="{{asset('img/icon/accept.svg')}}"> Selesai</button>
               </form>
-              <a href="{{url('/manage/book-in/refused/'.$data->book_id.'/'.$data->vechile_id)}}" class="btn btn-lg btn-outline-danger">Lapor Kerusakan Kendaraan</a>
+              {{-- <a href="{{url('/manage/book/broken/'.$data->id.'/'.$data->vechile_id)}}" class="btn btn-lg btn-danger"><img src="{{asset('img/icon/refuse.svg')}}">Selesai dan Ada Kerusakan</a> --}}
             </div>
           </div>
         </div>

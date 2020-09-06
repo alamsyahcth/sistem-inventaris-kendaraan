@@ -113,19 +113,19 @@
         Laporan
       </div>
       <li class="nav-item">
-        <a class="nav-link" href="{{url('/manage/book-in')}}">
+        <a class="nav-link" href="{{url('/manage/report-peminjaman')}}">
           <img src="{{asset('img/icon/book.svg')}}">
           <span class="ml-2">Laporan Peminjaman</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{url('/manage/book')}}">
+        <a class="nav-link" href="{{url('/manage/report-pengembalian')}}">
           <img src="{{asset('img/icon/book.svg')}}">
           <span class="ml-2">Laporan Pengembalian</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{url('/manage/book-finish')}}">
+        <a class="nav-link" href="{{url('/manage/report-kerusakan')}}">
           <img src="{{asset('img/icon/book.svg')}}">
           <span class="ml-2">Laporan Kerusakan</span>
         </a>
@@ -274,8 +274,14 @@
     $(".alert").delay(2000).slideUp(200, function() {
       $(this).alert('close');
     });
+    var date = new Date();
+    date.setDate(date.getDate()-1);
     $('.datepicker').datepicker({
-      format: 'yyyy-mm-dd'
+      format: 'yyyy-mm-dd',
+      startDate: date
+    });
+    $('.datepicker-employee').datepicker({
+      format: 'yyyy-mm-dd',
     });
   </script>
   @yield('js')

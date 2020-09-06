@@ -69,11 +69,11 @@
             <tr>
               <td class="pb-0" width="20%">
                 <p class="success-text">Nama Kendaraan</p>
-                <h6 class="detail-text-success">Daihatsu Sigra</h6>
+                <h6 class="detail-text-success">{{ $data->vechiles_name }}</h6>
               </td>
               <td class="pb-0" width="20%">
                 <p class="success-text">Nomor Polisi</p>
-                <h6 class="detail-text-success">B 1234 MM</h6>
+                <h6 class="detail-text-success">{{ $data->police_number }}</h6>
               </td>
               <td class="pb-0" width="20%">
                 <img src="{{asset('img/vechile/'.$data->vechiles_photo)}}" width="100" class="img-fluid shadow">

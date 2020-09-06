@@ -4,8 +4,8 @@
 <div class="container-fluid my-4">
   <div class="row">
     <div class="col-md-12">
-      <h1 class="font-weight-bold text-dark">Data Booking Masuk</h1>
-      <h6 class="mb-2">Manage Data Booking Kendaraan Masuk</h6>
+      <h1 class="font-weight-bold text-dark">Data Pengembalian Kendaraan</h1>
+      <h6 class="mb-2">Manage Data Pengembalian Kendaraan</h6>
       @include('backend/layouts/alert')
     </div>
   </div>
@@ -36,7 +36,7 @@
                     <span class="badge badge-pill badge-primary">Sudah Dikembalikan</span>
                   </td>
                   <td>
-                    <a href="{{url('/manage/book-in/'.$d->book_id)}}" class="btn btn-success btn-sm" ><img src="{{asset('img/icon/view.svg')}}"> View</a>
+                    <a href="{{url('/manage/book-finish/'.$d->book_finish_code)}}" class="btn btn-success btn-sm" ><img src="{{asset('img/icon/view.svg')}}"> View</a>
                   </td>
                 </tr>
               @endforeach

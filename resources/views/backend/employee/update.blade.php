@@ -49,7 +49,7 @@
               </div>
 
               <div class="form-group">
-                <input type="text" name="birthday" class="form-control datepicker @error('birthday') is-invalid @enderror" autocomplete="birthday" value="{{ $data->birthday }}" placeholder="Input tanggal lahir"/>
+                <input type="text" name="birthday" class="form-control datepicker-employee @error('birthday') is-invalid @enderror" autocomplete="birthday" value="{{ $data->birthday }}" placeholder="Input tanggal lahir"/>
                 @error('birthday')
                   <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>

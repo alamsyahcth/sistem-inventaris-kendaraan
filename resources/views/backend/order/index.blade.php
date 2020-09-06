@@ -30,7 +30,7 @@
             <tbody>
               <?php $i = 1; ?>
               @foreach($data as $d)
-                <tr>
+                <tr @if(date("Y-m-d") > $d->booking_end && $d->books_status == 'berjalan') style="background-color:#f7e4e4" @endif>
                   <td>{{ $i++ }}</td>
                   <td>{{ $d->book_code }}</td>
                   <td>{{ $d->employees_name }}</td>
@@ -41,10 +41,14 @@
                       <span class="badge badge-pill badge-primary">Sedang Berlangsung</span>
                     @endif
                     @if($d->books_status == 'selesai')
-                      <span class="badge badge-pill badge-danger">Peminjaman Selesai</span>
+                      <span class="badge badge-pill badge-secondary">Peminjaman Selesai</span>
+                    @endif
+                    @if(date("Y-m-d") > $d->booking_end && $d->books_status == 'berjalan')
+                      <span class="badge badge-pill badge-danger">Telat Mengembalikan</span>
                     @endif
                   </td>
                   <td>
+                    <a @if($d->books_status == 'selesai') href="#" class="btn btn-disabled btn-sm" @else href="{{url('/manage/book/report/'.$d->book_code)}}" target="_blank" class="btn btn-primary btn-sm" @endif ><img src="{{asset('img/icon/print.svg')}}"> Print</a>
                     <a @if($d->books_status == 'selesai') href="#" class="btn btn-disabled btn-sm" @else href="{{url('/manage/book/'.$d->book_code)}}" class="btn btn-success btn-sm" @endif ><img src="{{asset('img/icon/view.svg')}}"> View</a>
                   </td>
                 </tr>

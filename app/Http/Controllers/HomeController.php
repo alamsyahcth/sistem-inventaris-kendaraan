@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Carbon\Carbon;
 use App\OrderBook;
 use App\Employee;
 use App\Vechile;
@@ -54,6 +56,21 @@ class HomeController extends Controller{
         }
     }
 
+    public function sentmail($id) {
+        $data = employee::join('order_books','order_books.employee_id','=','employees.id')
+                ->where('order_books.book_id','=',$id)
+                ->first();
+        $details = [
+            'title' => $id,
+            'name' => $data->name,
+            'phone' => $data->phone
+        ];
+        
+        Mail::to($data->email)->send(new \App\Mail\BookMail($details));
+        return redirect('/success/'.$id);
+        
+    }
+
     public function success($id) {
         $data = OrderBook::where('order_books.book_id',$id)->join('employees','employees.id','=','order_books.employee_id')->first();
         $count = OrderBook::where('book_id',$id)->count();
@@ -91,14 +108,14 @@ class HomeController extends Controller{
                         $book_id = 'B-'.date('ymd').rand(1000,9999);
                         $data->book_id = $book_id;
                         $data->date = date("Y-m-d");
-                        $data->expired_date = date("Y-m-d");
+                        $data->expired_date = Carbon::now()->addDay(3);
                         $data->booking_date = $request->date_start;
                         $data->booking_end = $request->date_end;
                         $data->status = "Belum";
                         $data->reason = $request->reason;
                         if($data->save()) {
                             if(Vechile::where('id',$request->vechile_id)->update(['vechiles.status'=>'Not'])){
-                                return redirect('/success/'.$book_id);
+                                return redirect('/send-mail-book/'.$book_id);
                             } else {
                                 return redirect('/data/'.$slug->slug)->with('failed','Maaf Data Gagal Disimpan');
                             }
