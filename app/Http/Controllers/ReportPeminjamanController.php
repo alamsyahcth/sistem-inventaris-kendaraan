@@ -32,11 +32,14 @@ class ReportPeminjamanController extends Controller {
                 $data = Book::join('order_books','order_books.id','=','books.order_books_id')
                     ->join('employees','employees.id','=','order_books.employee_id')
                     ->join('vechiles','vechiles.id','=','order_books.vechile_id')
-                    ->join('book_finishes','book_finishes.book_id','=','books.id')
                     ->select('*','employees.name as employees_name', 'books.id as books_id', 'books.status as books_status','employees.photo as employees_photo','vechiles.photo as vechiles_photo','vechiles.id as vechiles_id','employees.id as employees_id','vechiles.status as vechiles_status','vechiles.name as vechiles_name',)
+                    ->where('order_books.date','>=',$request->date_start)
+                    ->where('order_books.date','<=',$request->date_end)
                     ->get();
                 $date = date("D Y M");
-                $pdf = PDF::loadView('backend.report.peminjamanPrintReport', compact(['data','date']));
+                $date_from = $request->date_start;
+                $date_to = $request->date_end;
+                $pdf = PDF::loadView('backend.report.peminjamanPrintReport', compact(['data','date','date_from','date_to']));
                 return $pdf->stream();
             } else {
                 return redirect('/manage/report-peminjaman')->with('failed', 'Tanggal Awal Harus Lebih Kecil');

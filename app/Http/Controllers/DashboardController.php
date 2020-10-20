@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\OrderBook;
+use App\Book;
+use App\BookFinish;
+use App\Employee;
+Use App\Vechile;
 
 class DashboardController extends Controller{
 
@@ -11,36 +16,11 @@ class DashboardController extends Controller{
     }
 
     public function index(){
-        return view('backend.dashboard');
+        $vechile_count = Vechile::count();
+        $order_book_count = OrderBook::where('status','=','berjalan')->count();
+        $book_count = Book::count();
+        $book_finish_count = BookFinish::count();
+        return view('backend.dashboard', compact(['vechile_count','order_book_count','book_count','book_finish_count']));
     }
 
-    public function create()
-    {
-        //
-    }
-
-    public function store(Request $request)
-    {
-        //
-    }
-
-    public function show($id)
-    {
-        //
-    }
-
-    public function edit($id)
-    {
-        //
-    }
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    public function destroy($id)
-    {
-        //
-    }
 }

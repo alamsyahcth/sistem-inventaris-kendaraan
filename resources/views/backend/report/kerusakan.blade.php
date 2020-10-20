@@ -15,7 +15,7 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-body">
-          <form class="form-horizontal" method="post" action="" enctype="multipart/form-data">
+          <form class="form-horizontal" method="post" action="{{ url('/manage/report-kerusakan/print') }}" enctype="multipart/form-data">
             <div class="form-group">
               @csrf
               <div class="row">
@@ -27,7 +27,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text" id="basic-addon1"><img src="{{asset('img/calendar.svg')}}"></span>
                     </div>
-                    <input type="text" name="date_start" class="form-control datepicker @if ($message = Session::get('failed')) is-invalid @endif  @error('date_start') is-invalid @enderror" autocomplete="date_start" placeholder="Tanggal Awal" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="text" name="date_start" class="form-control datepicker-employee @if ($message = Session::get('failed')) is-invalid @endif  @error('date_start') is-invalid @enderror" autocomplete="date_start" placeholder="Tanggal Awal" aria-label="Username" aria-describedby="basic-addon1">
                     @error('date_start')
                       <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -45,7 +45,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text" id="basic-addon1"><img src="{{asset('img/calendar.svg')}}"></span>
                     </div>
-                    <input type="text" name="date_end" class="form-control datepicker @error('date_end') is-invalid @enderror" autocomplete="date_end" placeholder="Tanggal Akhir" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="text" name="date_end" class="form-control datepicker-employee @error('date_end') is-invalid @enderror" autocomplete="date_end" placeholder="Tanggal Akhir" aria-label="Username" aria-describedby="basic-addon1">
                     @error('date_end')
                       <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>

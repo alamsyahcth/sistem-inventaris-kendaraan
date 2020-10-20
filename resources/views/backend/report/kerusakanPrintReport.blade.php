@@ -60,7 +60,7 @@
 <body>
 	<section>
 		<div class="container">
-			<h1>Bukti Pengembalian Kendaraan</h1>
+			<h1>Laporan Kerusakan Peminjaman</h1>
 			<h4>
 				<span class="number">Tanggal : </span> {{ $date }}
 			</h4>
@@ -76,11 +76,11 @@
         <thead>
           <tr>
             <th class="text-center">No</th>
-            <th class="text-center">Kode</th>
-            <th class="text-center">Karyawan</th>
-            <th class="text-center">Tanggal Pinjam</th>
-            <th class="text-center">Tanggal Kembali</th>
-            <th class="text-center">Status</th>
+            <th class="text-center">Kode Peminjaman</th>
+						<th class="text-center">Nama Kendaraan</th>
+						<th class="text-center">Plat Nomor</th>
+						<th class="text-center">Status Kerusakan</th>
+            <th class="text-center">Deskripsi</th>
           </tr>
         </thead>
         <tbody>
@@ -89,10 +89,10 @@
           <tr>
             <td class="text-center">{{ $i++ }}</td>
             <td class="text-center">{{ $d->book_code }}</td>
-            <td class="text-center">{{ $d->employees_name }}</td>
-            <td class="text-center">{{ $d->booking_date }}</td>
-            <td class="text-center">{{ $d->booking_end }}</td>
-            <td class="text-center">{{ $d->books_status}}</td>
+            <td class="text-center">{{ $d->vechiles_name }}</td>
+            <td class="text-center">{{ $d->police_number }}</td>
+						<td class="text-center">{{ $d->broken_status }}</td>
+						<td class="text-center">{{ $d->broken_description }}</td>
           </tr>
           @endforeach
         </tbody>

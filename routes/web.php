@@ -71,5 +71,7 @@ Route::get('/manage/report-peminjaman', 'ReportPeminjamanController@index');
 Route::post('/manage/report-peminjaman/print', 'ReportPeminjamanController@report');
 
 Route::get('/manage/report-pengembalian', 'ReportPengembalianController@index');
+Route::post('/manage/report-pengembalian/print', 'ReportPengembalianController@report');
 
 Route::get('/manage/report-kerusakan', 'ReportKerusakanController@index');
+Route::post('/manage/report-kerusakan/print', 'ReportKerusakanController@report');

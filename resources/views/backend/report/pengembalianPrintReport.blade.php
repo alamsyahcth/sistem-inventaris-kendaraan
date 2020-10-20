@@ -60,7 +60,7 @@
 <body>
 	<section>
 		<div class="container">
-			<h1>Bukti Pengembalian Kendaraan</h1>
+			<h1>Laporan Pengembalian Kendaraan</h1>
 			<h4>
 				<span class="number">Tanggal : </span> {{ $date }}
 			</h4>
@@ -79,7 +79,8 @@
             <th class="text-center">Kode</th>
             <th class="text-center">Karyawan</th>
             <th class="text-center">Tanggal Pinjam</th>
-            <th class="text-center">Tanggal Kembali</th>
+						<th class="text-center">Tanggal Kembali</th>
+						<th class="text-center">Tanggal Dikembalikan</th>
             <th class="text-center">Status</th>
           </tr>
         </thead>
@@ -88,11 +89,12 @@
           @foreach($data as $d)
           <tr>
             <td class="text-center">{{ $i++ }}</td>
-            <td class="text-center">{{ $d->book_code }}</td>
+            <td class="text-center">{{ $d->book_finish_code }}</td>
             <td class="text-center">{{ $d->employees_name }}</td>
             <td class="text-center">{{ $d->booking_date }}</td>
-            <td class="text-center">{{ $d->booking_end }}</td>
-            <td class="text-center">{{ $d->books_status}}</td>
+						<td class="text-center">{{ $d->booking_end }}</td>
+						<td class="text-center">{{ $d->date_finish }}</td>
+            <td class="text-center">{{ $d->book_finishes_status}}</td>
           </tr>
           @endforeach
         </tbody>
