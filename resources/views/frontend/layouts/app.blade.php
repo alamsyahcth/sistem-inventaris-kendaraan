@@ -15,8 +15,7 @@
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <div class="overlay-content">
       <a href="{{url('/')}}">Beranda</a>
-      <a href="#">Tentang Aplikasi</a>
-      <a href="#">Peraturan</a>
+      <a href="{{url('/peraturan')}}">Peraturan</a>
     </div>
   </div>
   <!--Navbar-->
@@ -58,12 +57,6 @@
         var color = $(this).data('color');
         var merk = $(this).data('merk');
         var photo = $(this).data('photo');
-        console.log(id);
-        console.log(name);
-        console.log(police_number);
-        console.log(color);
-        console.log(merk);
-        console.log(photo);
         $('#front-vechile-id').val(id);
         $('#front-vechile-name').val(name);
         $('#front-vechile-police-number').val(police_number);

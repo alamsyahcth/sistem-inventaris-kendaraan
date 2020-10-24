@@ -19,6 +19,8 @@ Route::get('/','HomeController@vechile');
 Route::get('/category/{slug}','HomeController@getCategory');
 Route::post('/search','HomeController@search');
 
+Route::get('/peraturan','RulesController@index');
+
 Route::get('/data/{slug}','HomeController@data');
 Route::post('/create-order', 'HomeController@createOrder');
 
